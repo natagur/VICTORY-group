@@ -73,16 +73,17 @@ let countdownDate = new Date().getTime() + (40*60*60*1000) + (30*60*1000); // 3 
      * TODO: необходимо добавить процентную ставку и стоимость исходя из выбранного автомобиля
      */
     function calculateTotalCost() {
-      let monthCount = monthList[this.value];
+      let monthCount = monthList[slider.value];
       output.innerHTML = monthCount + " месяцев";
+      console.log(monthCount)
       let firstPercent = sliderPercent.value;
       let totalCost = price;
       let percentSum = totalCost * firstPercent / 100;
       outputPercent.innerHTML = percentSum + " ₽";
       let monthPrice = (totalCost - percentSum) / monthCount;
+      console.log(monthPrice)
       let outputMonthPrice = document.getElementById("choice-price");
       outputMonthPrice.innerHTML = Math.round(monthPrice) + " ₽";
-
     }
 
     calculateTotalCost();
